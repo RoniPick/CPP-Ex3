@@ -9,10 +9,10 @@ namespace ariel {
     public:
         Notebook();
 
-        void write(unsigned int page, unsigned int row, unsigned int col, Direction, string str);
-        string read(unsigned int page, unsigned int row, unsigned int col, Direction, unsigned int num);
-        void erase(unsigned int page, unsigned int row, unsigned int col, Direction, unsigned int num);
-        void show(unsigned int page);
+        void write(int page, int row, int col, Direction, string str);
+        string read(int page, int row, int col, Direction, int num);
+        void erase(int page, int row, int col, Direction, int num);
+        void show(int page);
 
     };
 };

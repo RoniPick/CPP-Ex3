@@ -68,6 +68,9 @@ TEST_CASE("Bad input"){
     //this test will fail because we try to erase 110 chars, and we have only 100 chars each col
     CHECK_THROWS(notebook.erase(0, 0, 0, Direction::Horizontal, 110));
 
+    //this test will fail because we try to erase 30 chars from col 80, and we have only 100 chars each col
+    CHECK_THROWS(notebook.erase(0, 0, 80, Direction::Horizontal, 30));
+
     //this test will fail because we try to erase 15 chars from col 90, and we have only 100 chars each col
     CHECK_THROWS(notebook.erase(0, 0, 90, Direction::Horizontal, 15));
 
@@ -82,5 +85,28 @@ TEST_CASE("Bad input"){
     notebook.erase(2, 2, 10, Direction::Horizontal, 5);
     CHECK_THROWS(notebook.write(2, 2, 10, Direction::Horizontal, "Hello"));
 
+    //this test will fail because we try to write '~'
+    CHECK_THROWS(notebook.write(0, 0, 0, Direction::Horizontal, "Ari~el"));
+
+    //this test will fail because we try to write in negative page number
+    CHECK_THROWS(notebook.write(-2, 0, 0, Direction::Horizontal, "Ariel"));
+
+    //this test will fail because we try to write in negative row number
+    CHECK_THROWS(notebook.write(0, -5, 0, Direction::Horizontal, "University"));
+
+    //this test will fail because we try to write in negative col number
+    CHECK_THROWS(notebook.write(0, 0, -9, Direction::Horizontal, "Barak"));
+
+    //this test will fail because we try to write in negative row and col number
+    CHECK_THROWS(notebook.write(0, -2, -1, Direction::Horizontal, "Shahar"));
+
+    //this test will fail because we try to write in negative page and col number
+    CHECK_THROWS(notebook.write(-9, 0, -5, Direction::Horizontal, "Daniel"));
+
+    //this test will fail because we try to write in negative row and page number
+    CHECK_THROWS(notebook.write(-2, -3, 0, Direction::Horizontal, "Anton"));
+
+    //this test will fail because we try to write in negative page, row and col number
+    CHECK_THROWS(notebook.write(-3, -2, -1, Direction::Horizontal, "Roni"));
 
 }

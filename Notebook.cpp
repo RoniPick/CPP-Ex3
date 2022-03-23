@@ -9,17 +9,17 @@ Notebook::Notebook(){
 
 }
 
-void Notebook::write(unsigned int page, unsigned int row, unsigned int col, Direction , string str){
+void Notebook::write(int page, int row, int col, Direction , string str){
     cout << " " << endl;
 }
 
-string Notebook::read(unsigned int page, unsigned int row, unsigned int col, Direction , unsigned int num){
+string Notebook::read(int page,  int row, int col, Direction , int num){
     return "";
 }
 
-void Notebook::erase(unsigned int page, unsigned int row, unsigned int col, Direction , unsigned int num){
+void Notebook::erase( int page, int row, int col, Direction , int num){
 }
 
-void Notebook::show(unsigned int page){
+void Notebook::show(int page){
 }
 
